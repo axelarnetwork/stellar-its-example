@@ -42,7 +42,7 @@ axelar-its-app/
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/yourusername/stellar-its-example.git
+   git clone https://github.com/axelarnetwork/stellar-its-example.git
    cd axelar-its-example
    ```
 
