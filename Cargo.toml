@@ -1,0 +1,37 @@
+[package]
+name = "stellar-its-example"
+
+version = "0.0.0"
+edition = "2021"
+publish = false
+
+[lib]
+crate-type = ["cdylib"]
+doctest = false
+
+[dependencies]
+soroban-sdk = "22.0.0"
+soroban-token-sdk = "22.0.0"
+stellar-axelar-gateway = { git = "https://github.com/axelarnetwork/axelar-amplifier-stellar", branch = "main", features = ["library"] }
+stellar-axelar-gas-service = { git = "https://github.com/axelarnetwork/axelar-amplifier-stellar", branch = "main", features = ["library"] }
+stellar-interchain-token-service = { git = "https://github.com/axelarnetwork/axelar-amplifier-stellar", branch = "main", features = ["library"] }
+stellar-interchain-token = { git = "https://github.com/axelarnetwork/axelar-amplifier-stellar", branch = "main", features = ["library"] }
+stellar-token-manager = { git = "https://github.com/axelarnetwork/axelar-amplifier-stellar", branch = "main", features = ["library"] }
+stellar-axelar-std = { git = "https://github.com/axelarnetwork/axelar-amplifier-stellar", branch = "main" }
+
+[dev-dependencies]
+soroban-sdk = { version = "22.0.0", features = ["testutils"] }
+
+[profile.release]
+opt-level = "z"
+overflow-checks = true
+debug = 0
+strip = "symbols"
+debug-assertions = false
+panic = "abort"
+codegen-units = 1
+lto = true
+
+[profile.release-with-logs]
+inherits = "release"
+debug-assertions = true
